@@ -1,0 +1,22 @@
+defshell -bash
+shelltitle ${HOSTNAME}
+
+vbell off
+defscrollback 10000
+
+term xterm-256color
+hardstatus alwayslastline
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}'
+
+bind ' ' windowlist -b
+bind ',' title
+
+termcapinfo xterm* ti@:te@
+bindkey "^[[D" prev
+bindkey "^[[1;5D" prev
+
+bindkey "^[[C" next
+bindkey "^[[1;5C" next
+
+nonblock on
+
